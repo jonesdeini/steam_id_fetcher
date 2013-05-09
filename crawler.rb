@@ -2,7 +2,7 @@ require 'typhoeus'
 
 class Crawler
 
-  attr_accessor :clan_url, :hydra, :steam_ids, :errors
+  attr_accessor :clan_url, :steam_ids, :errors
 
   def initialize(clan_url)
     @clan_url = clan_url
