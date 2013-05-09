@@ -1,7 +1,7 @@
 steam_id_fetcher
 ================
 ### Idea
-Given a url of clan such as "http://xxlgamers.gameme.com/tf":
+Given a url of clan such as "http://xxlgamers.gameme.com/tf"
 > 1.) Discover urls of servers. ie "http://xxlgamers.gameme.com/overview/1"
 
 > 2.) For each server url, discover playerinfo urls. ie "http://xxlgamers.gameme.com/playerinfo/345596"
