@@ -3,6 +3,11 @@ require_relative "crawler"
 
 describe Crawler do
 
+  let :bad_request_stub do
+    response = Typhoeus::Response.new(code: 418, body: "{'Are you attempting to brew coffee with a teapot?'}")
+    Typhoeus.stub(/tf/).and_return(response)
+  end
+
   let :clan_url_stub do
     response = Typhoeus::Response.new(code: 200, body: "{'http://foo.gameme.com/overview/1'}")
     Typhoeus.stub(/tf/).and_return(response)
@@ -56,6 +61,13 @@ describe Crawler do
     c = Crawler.new "foo"
     c.go!
     c.errors.must_include "Bad Url: foo"
+  end
+
+  it "must handle non-sucessful requests" do
+    bad_request_stub
+    c = Crawler.new "http://foo.gameme.com/tf"
+    c.go!
+    c.errors.must_include("{:code=>418, :body=>\"{'Are you attempting to brew coffee with a teapot?'}\"}")
   end
 
 end

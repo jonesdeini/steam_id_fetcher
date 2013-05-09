@@ -38,7 +38,7 @@ class Crawler
         urls = scrape_page_source(response.body, regex)
         crawler urls
       else
-        raise response.inspect
+        @errors << response.options.to_s
       end
     end
   end
