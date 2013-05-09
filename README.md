@@ -2,13 +2,13 @@ steam_id_fetcher
 ================
 ### Idea
 Given a url of clan such as "http://xxlgamers.gameme.com/tf"
-> 1.) Discover urls of servers. ie "http://xxlgamers.gameme.com/overview/35"
+> 1.) Discover urls of servers. eg "http://xxlgamers.gameme.com/overview/35"
 
-> 2.) For each server url, discover playerinfo urls. ie "http://xxlgamers.gameme.com/playerinfo/345596"
+> 2.) For each server url, discover playerinfo urls. eg "http://xxlgamers.gameme.com/playerinfo/345596"
 
-> 3.) For each playerinfo url, discover steam profile urls. ie "http://steamcommunity.com/profiles/76561198015466913"
+> 3.) For each playerinfo url, discover steam profile urls. eg "http://steamcommunity.com/profiles/76561198015466913"
 
-> 4.) Collect steam id from each discovered steam profile url. ie "76561198015466913"
+> 4.) Collect steam id from each discovered steam profile url. eg "76561198015466913"
 
 ### Usage
 main.rb is a usage example
