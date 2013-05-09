@@ -2,12 +2,13 @@ require 'typhoeus'
 
 class Crawler
 
-  attr_accessor :clan_url, :hydra, :steam_ids
+  attr_accessor :clan_url, :hydra, :steam_ids, :errors
 
   def initialize(clan_url)
     @clan_url = clan_url
     @hydra = Typhoeus::Hydra.new(max_concurrency: 8)
     @steam_ids = []
+    @errors = []
   end
 
   def go!
@@ -22,8 +23,10 @@ class Crawler
       regex, steam_id = regex_determiner(url)
       if steam_id
         @steam_ids << get_steam_id_from_url(url, regex)
-      else
+      elsif regex
         crawl url, regex
+      else
+        @errors << "Bad Url: #{url}"
       end
     end
   end
@@ -55,7 +58,7 @@ class Crawler
     when /http\:\/\/steamcommunity\.com\/profiles\/\d+/
       return /http\:\/\/steamcommunity\.com\/profiles\/(\d+)/, true
     else
-      # raise UnknownUrl
+      # Bad Url - return nil
     end
   end
 

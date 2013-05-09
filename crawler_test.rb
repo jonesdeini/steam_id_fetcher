@@ -52,4 +52,10 @@ describe Crawler do
     c.steam_ids.must_include "76561198015466913"
   end
 
+  it "must catch bad urls and not make requests to them" do
+    c = Crawler.new "foo"
+    c.go!
+    c.errors.must_include "Bad Url: foo"
+  end
+
 end
