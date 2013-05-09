@@ -13,6 +13,6 @@ Given a url of clan such as "http://xxlgamers.gameme.com/tf"
 ### Usage
 main.rb is a usage example
 
-Tests can be ran with `$ ruby -Itest crawler_test`
+Tests can be ran with `$ ruby -Itest crawler_test.rb`
 
 This project utilizes [Typhoeus](https://github.com/typhoeus/typhoeus) for fast parallel HTTP requests
